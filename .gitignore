@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+experiments/traces/*.jsonl
+!experiments/traces/README.md
+
+.DS_Store
+

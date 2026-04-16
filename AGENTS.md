@@ -15,11 +15,11 @@ Observability: Prometheus, Grafana
 Data/Logging: SQLite / Parquet / Pandas
 
 ## Commands
-- **Install:** [e.g. `npm install`, `pip install -r requirements.txt`]
-- **Dev:** [e.g. `npm run dev`, `python manage.py runserver`]
-- **Build:** [e.g. `npm run build`]
-- **Test:** [e.g. `npm test`, `pytest`]
-- **Lint:** [e.g. `npm run lint`, `ruff check .`]
+- **Install:** `python3 -m venv .venv && .venv/bin/python -m pip install -r host/controller/requirements.txt`
+- **Dev:** `.venv/bin/python -m uvicorn host.controller.app:app --reload`
+- **Simulate:** `.venv/bin/python scripts/simulate_events.py`
+- **Test:** `.venv/bin/python -m pytest`
+- **Lint:** Not configured yet
 
 ## Do
 - Read existing code before modifying anything
