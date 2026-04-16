@@ -84,6 +84,7 @@ pytest
 ## Initial API
 
 - `GET /health` returns host runtime health.
+- `GET /metrics` returns simple JSON runtime counters and latest-state values.
 - `POST /event` records an event and returns a runtime decision.
 - `POST /decision` evaluates runtime state without recording an event.
 - `POST /infer/fallback` runs host fallback inference.
@@ -91,4 +92,3 @@ pytest
 ## Roadmap
 
 See [docs/roadmap.md](docs/roadmap.md) for the full staged roadmap.
-

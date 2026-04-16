@@ -19,7 +19,23 @@ Exit criteria:
 - Synthetic events receive deterministic runtime decisions.
 - Events and decisions are logged for later analysis.
 
-## Phase 2: ESP32-S3 Local Inference
+## Phase 2: Minimal Host Runtime Skeleton
+
+Status: complete
+
+Deliverables:
+
+- FastAPI host service
+- `/health`, `/event`, `/decision`, `/infer/fallback`, and `/metrics`
+- Deterministic rule-based decision baseline
+- Local JSONL event logging
+- Basic in-memory runtime metrics for latency, confidence, queue depth, decisions, and fallback requests
+
+Exit criteria:
+
+- The host runtime can receive synthetic events, return deterministic decisions, log event records, expose fallback inference, and report basic JSON metrics.
+
+## Phase 3: ESP32-S3 Local Inference
 
 Deliverables:
 
@@ -33,7 +49,7 @@ Exit criteria:
 
 - ESP32-S3 can run local inference and report runtime state to the host.
 
-## Phase 3: nRF52840 Event Node
+## Phase 4: nRF52840 Event Node
 
 Deliverables:
 
@@ -45,7 +61,7 @@ Exit criteria:
 
 - nRF52840 can trigger events that flow into ESP32-S3 inference.
 
-## Phase 4: End-To-End Hardware Demo
+## Phase 5: End-To-End Hardware Demo
 
 Deliverables:
 
@@ -57,7 +73,7 @@ Exit criteria:
 
 - The complete heterogeneous pipeline runs on real hardware.
 
-## Phase 5: Observability And Experiments
+## Phase 6: Observability And Experiments
 
 Deliverables:
 
@@ -70,7 +86,7 @@ Exit criteria:
 
 - The runtime can demonstrate concrete improvements over a static pipeline.
 
-## Phase 6: RL Controller Prototype
+## Phase 7: RL Controller Prototype
 
 Deliverables:
 
@@ -83,7 +99,7 @@ Exit criteria:
 
 - Learned policy beats or complements the rule baseline in controlled scenarios.
 
-## Phase 7: Hybrid Adaptive Runtime
+## Phase 8: Hybrid Adaptive Runtime
 
 Deliverables:
 

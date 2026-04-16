@@ -38,6 +38,22 @@ The runtime protocol defines how edge nodes report inference state and how the h
 }
 ```
 
+## Metrics Snapshot
+
+`GET /metrics`
+
+```json
+{
+  "total_events_received": 1,
+  "total_decisions_made": 1,
+  "total_fallback_inference_requests": 0,
+  "latest_local_confidence": 0.82,
+  "latest_local_latency_ms": 18.5,
+  "latest_queue_depth": 2,
+  "latest_decision_action": "run_local"
+}
+```
+
 ## Supported Actions
 
 | Action | Meaning |
@@ -62,4 +78,3 @@ The runtime protocol defines how edge nodes report inference state and how the h
 ## Versioning
 
 Protocol changes should be documented here before firmware depends on them. Breaking changes should increment a protocol version field once embedded clients are implemented.
-
