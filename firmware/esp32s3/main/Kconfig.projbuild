@@ -1,0 +1,42 @@
+menu "Adaptive Edge Runtime"
+
+config EDGE_WIFI_SSID
+    string "Wi-Fi SSID"
+    default ""
+    help
+        Wi-Fi network name used by the ESP32-S3 to reach the host runtime.
+
+config EDGE_WIFI_PASSWORD
+    string "Wi-Fi password"
+    default ""
+    help
+        Wi-Fi password used by the ESP32-S3 to reach the host runtime.
+
+config EDGE_HOST_EVENT_URL
+    string "Host /event URL"
+    default "http://192.168.1.25:8000/event"
+    help
+        Full URL for POSTing ESP32-S3 event state to the host runtime.
+
+config EDGE_HOST_FALLBACK_URL
+    string "Host /infer/fallback URL"
+    default "http://192.168.1.25:8000/infer/fallback"
+    help
+        Full URL for POSTing payloads that need host fallback inference.
+
+config EDGE_SYNTHETIC_EVENT_PERIOD_MS
+    int "Synthetic event period in milliseconds"
+    default 2000
+    range 250 60000
+    help
+        Period used by the synthetic event generator before the nRF52840 event node exists.
+
+config EDGE_USE_TFLM
+    bool "Enable TensorFlow Lite Micro model runner"
+    default n
+    help
+        Enables the TensorFlow Lite Micro integration path once a valid model and component are added.
+        The default firmware remains runnable with the deterministic local classifier.
+
+endmenu
+

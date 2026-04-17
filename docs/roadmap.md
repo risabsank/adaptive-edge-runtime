@@ -37,6 +37,8 @@ Exit criteria:
 
 ## Phase 3: ESP32-S3 Local Inference
 
+Status: complete
+
 Deliverables:
 
 - ESP32-S3 firmware skeleton
@@ -44,6 +46,7 @@ Deliverables:
 - Latency and confidence measurement
 - Host communication client
 - Deterministic offline fallback behavior
+- ESP32-S3 setup and reproducibility documentation
 
 Exit criteria:
 

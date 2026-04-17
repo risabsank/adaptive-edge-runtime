@@ -1,0 +1,307 @@
+Command: /Users/risabsankarstuff/.espressif/python_env/idf5.5_py3.14_env/bin/python /Users/risabsankarstuff/esp/esp-idf/tools/idf_monitor.py -p /dev/cu.usbmodem11101 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 /Users/risabsankarstuff/Downloads/adaptive-edge-runtime/firmware/esp32s3/build/adaptive_edge_esp32s3.elf /Users/risabsankarstuff/Downloads/adaptive-edge-runtime/firmware/esp32s3/build/bootloader/bootloader.elf -m '/Users/risabsankarstuff/.espressif/python_env/idf5.5_py3.14_env/bin/python' '/Users/risabsankarstuff/esp/esp-idf/tools/idf.py' '-p' '/dev/cu.usbmodem11101'
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x0 (DOWNLOAD(USB/UART0))
+Saved PC:0x40041a76
+waiting for download
+[0;32mI (913) wifi:dp: 2, bi: 102400, li: 4, scale listen interval from 307200 us to 409600 us[0m
+[0;32mI (913) wifi:AP's beacon interval = 102400 us, DTIM period = 2[0m
+[0;32mI (4103) wifi:<ba-add>idx:0 (ifx:0, a0:7f:8a:57:80:24), tid:7, ssn:1, winSize:64[0m
+[0;32mI (5113) esp_netif_handlers: sta ip: 192.168.1.49, mask: 255.255.255.0, gw: 192.168.1.1[0m
+[0;32mI (5113) adaptive_edge: Wi-Fi connected ip=192.168.1.49[0m
+[0;32mI (5113) adaptive_edge: ESP32-S3 edge runtime started wifi_ready=true[0m
+[0;32mI (5113) adaptive_edge: local inference event=esp32s3_000000 prediction=normal confidence=0.563 latency_ms=0.020 queue_depth=5 priority=normal[0m
+[0;32mI (5333) wifi:<ba-add>idx:1 (ifx:0, a0:7f:8a:57:80:24), tid:0, ssn:1, winSize:64[0m
+[0;32mI (5393) adaptive_edge: host decision event=esp32s3_000000 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (5443) host_client: fallback response event=esp32s3_000000 body={"event_id":"esp32s3_000000","prediction":"normal","confidence":0.5627,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (7453) adaptive_edge: local inference event=esp32s3_000001 prediction=normal confidence=0.634 latency_ms=0.022 queue_depth=0 priority=normal[0m
+[0;32mI (8253) adaptive_edge: host decision event=esp32s3_000001 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (8323) host_client: fallback response event=esp32s3_000001 body={"event_id":"esp32s3_000001","prediction":"normal","confidence":0.6343,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (10323) adaptive_edge: local inference event=esp32s3_000002 prediction=anomaly confidence=0.657 latency_ms=0.019 queue_depth=4 priority=high[0m
+[0;32mI (11453) adaptive_edge: host decision event=esp32s3_000002 action=offload reason=priority_escalation timeout_ms=500[0m
+[0;32mI (11513) host_client: fallback response event=esp32s3_000002 body={"event_id":"esp32s3_000002","prediction":"anomaly","confidence":0.6567,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (13523) adaptive_edge: local inference event=esp32s3_000003 prediction=normal confidence=0.517 latency_ms=0.020 queue_depth=7 priority=normal[0m
+[0;32mI (13583) adaptive_edge: host decision event=esp32s3_000003 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (13643) host_client: fallback response event=esp32s3_000003 body={"event_id":"esp32s3_000003","prediction":"normal","confidence":0.5173,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (15643) adaptive_edge: local inference event=esp32s3_000004 prediction=normal confidence=0.700 latency_ms=0.020 queue_depth=3 priority=normal[0m
+[0;32mI (16943) adaptive_edge: host decision event=esp32s3_000004 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (16983) host_client: fallback response event=esp32s3_000004 body={"event_id":"esp32s3_000004","prediction":"normal","confidence":0.6997,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (18993) adaptive_edge: local inference event=esp32s3_000005 prediction=normal confidence=0.675 latency_ms=0.020 queue_depth=8 priority=normal[0m
+[0;32mI (19053) adaptive_edge: host decision event=esp32s3_000005 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (19103) host_client: fallback response event=esp32s3_000005 body={"event_id":"esp32s3_000005","prediction":"normal","confidence":0.675,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (21103) adaptive_edge: local inference event=esp32s3_000006 prediction=normal confidence=0.616 latency_ms=0.020 queue_depth=7 priority=normal[0m
+[0;32mI (22023) adaptive_edge: host decision event=esp32s3_000006 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (22083) host_client: fallback response event=esp32s3_000006 body={"event_id":"esp32s3_000006","prediction":"normal","confidence":0.6157,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (24083) adaptive_edge: local inference event=esp32s3_000007 prediction=normal confidence=0.590 latency_ms=0.020 queue_depth=8 priority=normal[0m
+[0;32mI (24483) adaptive_edge: host decision event=esp32s3_000007 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (24553) host_client: fallback response event=esp32s3_000007 body={"event_id":"esp32s3_000007","prediction":"normal","confidence":0.59,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (26553) adaptive_edge: local inference event=esp32s3_000008 prediction=normal confidence=0.599 latency_ms=0.020 queue_depth=1 priority=normal[0m
+[0;33mW (29903) HTTP_CLIENT: Connection timed out before data was ready![0m
+[0;33mW (29903) host_client: POST failed url=http://192.168.1.207:8000/event err=ESP_ERR_HTTP_EAGAIN status=-1[0m
+[0;33mW (29903) local_inference: local fallback event=esp32s3_000008 prediction=normal confidence=0.599 latency_ms=0.020[0m
+[0;32mI (31913) adaptive_edge: local inference event=esp32s3_000009 prediction=normal confidence=0.516 latency_ms=0.020 queue_depth=4 priority=normal[0m
+[0;32mI (31953) adaptive_edge: host decision event=esp32s3_000009 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (31993) host_client: fallback response event=esp32s3_000009 body={"event_id":"esp32s3_000009","prediction":"normal","confidence":0.5157,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (34003) adaptive_edge: local inference event=esp32s3_000010 prediction=anomaly confidence=0.840 latency_ms=0.020 queue_depth=8 priority=high[0m
+[0;32mI (34043) adaptive_edge: host decision event=esp32s3_000010 action=offload reason=priority_escalation timeout_ms=500[0m
+[0;32mI (34113) host_client: fallback response event=esp32s3_000010 body={"event_id":"esp32s3_000010","prediction":"anomaly","confidence":0.8397,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (36113) adaptive_edge: local inference event=esp32s3_000011 prediction=anomaly confidence=0.904 latency_ms=0.022 queue_depth=3 priority=normal[0m
+[0;32mI (36153) adaptive_edge: host decision event=esp32s3_000011 action=run_local reason=local_inference_acceptable timeout_ms=250[0m
+[0;32mI (38153) adaptive_edge: local inference event=esp32s3_000012 prediction=normal confidence=0.573 latency_ms=0.022 queue_depth=4 priority=normal[0m
+[0;32mI (38213) adaptive_edge: host decision event=esp32s3_000012 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (38263) host_client: fallback response event=esp32s3_000012 body={"event_id":"esp32s3_000012","prediction":"normal","confidence":0.5727,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (40273) adaptive_edge: local inference event=esp32s3_000013 prediction=normal confidence=0.823 latency_ms=0.022 queue_depth=0 priority=normal[0m
+[0;32mI (40323) adaptive_edge: host decision event=esp32s3_000013 action=run_local reason=local_inference_acceptable timeout_ms=250[0m
+[0;32mI (42323) adaptive_edge: local inference event=esp32s3_000014 prediction=normal confidence=0.516 latency_ms=0.020 queue_depth=3 priority=normal[0m
+[0;32mI (42543) adaptive_edge: host decision event=esp32s3_000014 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (42583) host_client: fallback response event=esp32s3_000014 body={"event_id":"esp32s3_000014","prediction":"normal","confidence":0.5163,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (44593) adaptive_edge: local inference event=esp32s3_000015 prediction=anomaly confidence=0.688 latency_ms=0.020 queue_depth=4 priority=normal[0m
+[0;32mI (45703) adaptive_edge: host decision event=esp32s3_000015 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (45763) host_client: fallback response event=esp32s3_000015 body={"event_id":"esp32s3_000015","prediction":"anomaly","confidence":0.688,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (47773) adaptive_edge: local inference event=esp32s3_000016 prediction=normal confidence=0.759 latency_ms=0.019 queue_depth=1 priority=normal[0m
+[0;32mI (48923) adaptive_edge: host decision event=esp32s3_000016 action=run_local reason=local_inference_acceptable timeout_ms=250[0m
+[0;32mI (50923) adaptive_edge: local inference event=esp32s3_000017 prediction=normal confidence=0.615 latency_ms=0.020 queue_depth=9 priority=normal[0m
+[0;32mI (50973) adaptive_edge: host decision event=esp32s3_000017 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (51023) host_client: fallback response event=esp32s3_000017 body={"event_id":"esp32s3_000017","prediction":"normal","confidence":0.6147,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (53033) adaptive_edge: local inference event=esp32s3_000018 prediction=normal confidence=0.589 latency_ms=0.019 queue_depth=4 priority=normal[0m
+[0;32mI (55113) adaptive_edge: host decision event=esp32s3_000018 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (55173) host_client: fallback response event=esp32s3_000018 body={"event_id":"esp32s3_000018","prediction":"normal","confidence":0.5893,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (57183) adaptive_edge: local inference event=esp32s3_000019 prediction=normal confidence=0.544 latency_ms=0.022 queue_depth=8 priority=normal[0m
+[0;32mI (57253) adaptive_edge: host decision event=esp32s3_000019 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (57303) host_client: fallback response event=esp32s3_000019 body={"event_id":"esp32s3_000019","prediction":"normal","confidence":0.5437,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (59313) adaptive_edge: local inference event=esp32s3_000020 prediction=normal confidence=0.521 latency_ms=0.019 queue_depth=4 priority=normal[0m
+[0;32mI (59353) adaptive_edge: host decision event=esp32s3_000020 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (59473) host_client: fallback response event=esp32s3_000020 body={"event_id":"esp32s3_000020","prediction":"normal","confidence":0.5207,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (61473) adaptive_edge: local inference event=esp32s3_000021 prediction=anomaly confidence=0.712 latency_ms=0.019 queue_depth=8 priority=normal[0m
+[0;32mI (62383) adaptive_edge: host decision event=esp32s3_000021 action=batch reason=queue_depth_pressure timeout_ms=100[0m
+[0;32mI (64483) adaptive_edge: local inference event=esp32s3_000022 prediction=normal confidence=0.661 latency_ms=0.019 queue_depth=5 priority=normal[0m
+[0;32mI (64553) adaptive_edge: host decision event=esp32s3_000022 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (64623) host_client: fallback response event=esp32s3_000022 body={"event_id":"esp32s3_000022","prediction":"normal","confidence":0.661,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (66623) adaptive_edge: local inference event=esp32s3_000023 prediction=normal confidence=0.596 latency_ms=0.020 queue_depth=0 priority=normal[0m
+[0;32mI (66713) adaptive_edge: host decision event=esp32s3_000023 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (66773) host_client: fallback response event=esp32s3_000023 body={"event_id":"esp32s3_000023","prediction":"normal","confidence":0.596,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (68783) adaptive_edge: local inference event=esp32s3_000024 prediction=normal confidence=0.562 latency_ms=0.020 queue_depth=6 priority=normal[0m
+[0;32mI (68853) adaptive_edge: host decision event=esp32s3_000024 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (68903) host_client: fallback response event=esp32s3_000024 body={"event_id":"esp32s3_000024","prediction":"normal","confidence":0.5623,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (70903) adaptive_edge: local inference event=esp32s3_000025 prediction=normal confidence=0.519 latency_ms=0.020 queue_depth=7 priority=normal[0m
+[0;32mI (70953) adaptive_edge: host decision event=esp32s3_000025 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (71023) host_client: fallback response event=esp32s3_000025 body={"event_id":"esp32s3_000025","prediction":"normal","confidence":0.519,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (73033) adaptive_edge: local inference event=esp32s3_000026 prediction=normal confidence=0.518 latency_ms=0.020 queue_depth=4 priority=normal[0m
+[0;32mI (73083) adaptive_edge: host decision event=esp32s3_000026 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (73163) host_client: fallback response event=esp32s3_000026 body={"event_id":"esp32s3_000026","prediction":"normal","confidence":0.518,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (75163) adaptive_edge: local inference event=esp32s3_000027 prediction=normal confidence=0.611 latency_ms=0.019 queue_depth=9 priority=normal[0m
+[0;32mI (76423) adaptive_edge: host decision event=esp32s3_000027 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (76483) host_client: fallback response event=esp32s3_000027 body={"event_id":"esp32s3_000027","prediction":"normal","confidence":0.611,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (78483) adaptive_edge: local inference event=esp32s3_000028 prediction=normal confidence=0.513 latency_ms=0.019 queue_depth=3 priority=normal[0m
+[0;32mI (78993) adaptive_edge: host decision event=esp32s3_000028 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (79033) host_client: fallback response event=esp32s3_000028 body={"event_id":"esp32s3_000028","prediction":"normal","confidence":0.513,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (81043) adaptive_edge: local inference event=esp32s3_000029 prediction=anomaly confidence=0.787 latency_ms=0.019 queue_depth=1 priority=high[0m
+[0;32mI (81153) adaptive_edge: host decision event=esp32s3_000029 action=offload reason=priority_escalation timeout_ms=500[0m
+[0;32mI (81213) host_client: fallback response event=esp32s3_000029 body={"event_id":"esp32s3_000029","prediction":"anomaly","confidence":0.7867,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (83213) adaptive_edge: local inference event=esp32s3_000030 prediction=normal confidence=0.640 latency_ms=0.020 queue_depth=2 priority=normal[0m
+[0;32mI (83283) adaptive_edge: host decision event=esp32s3_000030 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (83343) host_client: fallback response event=esp32s3_000030 body={"event_id":"esp32s3_000030","prediction":"normal","confidence":0.6397,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (85353) adaptive_edge: local inference event=esp32s3_000031 prediction=normal confidence=0.669 latency_ms=0.020 queue_depth=7 priority=normal[0m
+[0;32mI (85433) adaptive_edge: host decision event=esp32s3_000031 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (85493) host_client: fallback response event=esp32s3_000031 body={"event_id":"esp32s3_000031","prediction":"normal","confidence":0.669,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (87493) adaptive_edge: local inference event=esp32s3_000032 prediction=anomaly confidence=0.792 latency_ms=0.020 queue_depth=6 priority=normal[0m
+[0;32mI (87583) adaptive_edge: host decision event=esp32s3_000032 action=run_local reason=local_inference_acceptable timeout_ms=250[0m
+[0;32mI (89593) adaptive_edge: local inference event=esp32s3_000033 prediction=normal confidence=0.792 latency_ms=0.020 queue_depth=0 priority=normal[0m
+[0;32mI (89653) adaptive_edge: host decision event=esp32s3_000033 action=run_local reason=local_inference_acceptable timeout_ms=250[0m
+[0;32mI (91653) adaptive_edge: local inference event=esp32s3_000034 prediction=anomaly confidence=0.908 latency_ms=0.020 queue_depth=6 priority=high[0m
+[0;32mI (92913) adaptive_edge: host decision event=esp32s3_000034 action=offload reason=priority_escalation timeout_ms=500[0m
+[0;32mI (92963) host_client: fallback response event=esp32s3_000034 body={"event_id":"esp32s3_000034","prediction":"anomaly","confidence":0.9077,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (94963) adaptive_edge: local inference event=esp32s3_000035 prediction=normal confidence=0.623 latency_ms=0.019 queue_depth=6 priority=normal[0m
+[0;32mI (95883) adaptive_edge: host decision event=esp32s3_000035 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (95983) host_client: fallback response event=esp32s3_000035 body={"event_id":"esp32s3_000035","prediction":"normal","confidence":0.6227,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (97983) adaptive_edge: local inference event=esp32s3_000036 prediction=normal confidence=0.579 latency_ms=0.019 queue_depth=9 priority=normal[0m
+[0;32mI (99273) adaptive_edge: host decision event=esp32s3_000036 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (99313) host_client: fallback response event=esp32s3_000036 body={"event_id":"esp32s3_000036","prediction":"normal","confidence":0.579,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (101313) adaptive_edge: local inference event=esp32s3_000037 prediction=normal confidence=0.560 latency_ms=0.019 queue_depth=7 priority=normal[0m
+[0;32mI (102413) adaptive_edge: host decision event=esp32s3_000037 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (102473) host_client: fallback response event=esp32s3_000037 body={"event_id":"esp32s3_000037","prediction":"normal","confidence":0.5597,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (104483) adaptive_edge: local inference event=esp32s3_000038 prediction=normal confidence=0.596 latency_ms=0.019 queue_depth=0 priority=normal[0m
+[0;32mI (104523) adaptive_edge: host decision event=esp32s3_000038 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (104573) host_client: fallback response event=esp32s3_000038 body={"event_id":"esp32s3_000038","prediction":"normal","confidence":0.596,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (106573) adaptive_edge: local inference event=esp32s3_000039 prediction=normal confidence=0.540 latency_ms=0.019 queue_depth=7 priority=normal[0m
+[0;32mI (106633) adaptive_edge: host decision event=esp32s3_000039 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (106693) host_client: fallback response event=esp32s3_000039 body={"event_id":"esp32s3_000039","prediction":"normal","confidence":0.5403,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (108693) adaptive_edge: local inference event=esp32s3_000040 prediction=normal confidence=0.510 latency_ms=0.022 queue_depth=5 priority=normal[0m
+[0;32mI (108773) adaptive_edge: host decision event=esp32s3_000040 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (108883) host_client: fallback response event=esp32s3_000040 body={"event_id":"esp32s3_000040","prediction":"normal","confidence":0.5103,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (110893) adaptive_edge: local inference event=esp32s3_000041 prediction=normal confidence=0.561 latency_ms=0.020 queue_depth=6 priority=normal[0m
+[0;32mI (111353) adaptive_edge: host decision event=esp32s3_000041 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (111393) host_client: fallback response event=esp32s3_000041 body={"event_id":"esp32s3_000041","prediction":"normal","confidence":0.5613,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (113393) adaptive_edge: local inference event=esp32s3_000042 prediction=anomaly confidence=0.759 latency_ms=0.020 queue_depth=4 priority=normal[0m
+[0;32mI (113453) adaptive_edge: host decision event=esp32s3_000042 action=run_local reason=local_inference_acceptable timeout_ms=250[0m
+[0;32mI (115453) adaptive_edge: local inference event=esp32s3_000043 prediction=normal confidence=0.519 latency_ms=0.022 queue_depth=9 priority=normal[0m
+[0;32mI (115553) adaptive_edge: host decision event=esp32s3_000043 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (115623) host_client: fallback response event=esp32s3_000043 body={"event_id":"esp32s3_000043","prediction":"normal","confidence":0.5187,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (117623) adaptive_edge: local inference event=esp32s3_000044 prediction=normal confidence=0.648 latency_ms=0.022 queue_depth=0 priority=high[0m
+[0;32mI (117683) adaptive_edge: host decision event=esp32s3_000044 action=offload reason=priority_escalation timeout_ms=500[0m
+[0;32mI (117743) host_client: fallback response event=esp32s3_000044 body={"event_id":"esp32s3_000044","prediction":"normal","confidence":0.6477,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (119743) adaptive_edge: local inference event=esp32s3_000045 prediction=normal confidence=0.668 latency_ms=0.019 queue_depth=2 priority=normal[0m
+[0;32mI (119803) adaptive_edge: host decision event=esp32s3_000045 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (119863) host_client: fallback response event=esp32s3_000045 body={"event_id":"esp32s3_000045","prediction":"normal","confidence":0.6677,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (121863) adaptive_edge: local inference event=esp32s3_000046 prediction=anomaly confidence=0.715 latency_ms=0.020 queue_depth=4 priority=high[0m
+[0;32mI (122113) adaptive_edge: host decision event=esp32s3_000046 action=offload reason=priority_escalation timeout_ms=500[0m
+[0;32mI (122163) host_client: fallback response event=esp32s3_000046 body={"event_id":"esp32s3_000046","prediction":"anomaly","confidence":0.7153,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (124163) adaptive_edge: local inference event=esp32s3_000047 prediction=normal confidence=0.556 latency_ms=0.022 queue_depth=1 priority=normal[0m
+[0;32mI (124353) adaptive_edge: host decision event=esp32s3_000047 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (124403) host_client: fallback response event=esp32s3_000047 body={"event_id":"esp32s3_000047","prediction":"normal","confidence":0.5563,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (126413) adaptive_edge: local inference event=esp32s3_000048 prediction=normal confidence=0.549 latency_ms=0.020 queue_depth=9 priority=normal[0m
+[0;32mI (126613) adaptive_edge: host decision event=esp32s3_000048 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (126683) host_client: fallback response event=esp32s3_000048 body={"event_id":"esp32s3_000048","prediction":"normal","confidence":0.549,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (128683) adaptive_edge: local inference event=esp32s3_000049 prediction=anomaly confidence=0.899 latency_ms=0.019 queue_depth=5 priority=high[0m
+[0;32mI (128863) adaptive_edge: host decision event=esp32s3_000049 action=offload reason=priority_escalation timeout_ms=500[0m
+[0;32mI (128933) host_client: fallback response event=esp32s3_000049 body={"event_id":"esp32s3_000049","prediction":"anomaly","confidence":0.899,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (130943) adaptive_edge: local inference event=esp32s3_000050 prediction=normal confidence=0.667 latency_ms=0.022 queue_depth=3 priority=normal[0m
+[0;32mI (130993) adaptive_edge: host decision event=esp32s3_000050 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (131053) host_client: fallback response event=esp32s3_000050 body={"event_id":"esp32s3_000050","prediction":"normal","confidence":0.6667,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (133053) adaptive_edge: local inference event=esp32s3_000051 prediction=normal confidence=0.615 latency_ms=0.019 queue_depth=2 priority=normal[0m
+[0;32mI (133103) adaptive_edge: host decision event=esp32s3_000051 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (133173) host_client: fallback response event=esp32s3_000051 body={"event_id":"esp32s3_000051","prediction":"normal","confidence":0.6147,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (135183) adaptive_edge: local inference event=esp32s3_000052 prediction=normal confidence=0.782 latency_ms=0.019 queue_depth=2 priority=normal[0m
+[0;32mI (135233) adaptive_edge: host decision event=esp32s3_000052 action=run_local reason=local_inference_acceptable timeout_ms=250[0m
+[0;32mI (137233) adaptive_edge: local inference event=esp32s3_000053 prediction=normal confidence=0.503 latency_ms=0.019 queue_depth=0 priority=normal[0m
+[0;32mI (139573) adaptive_edge: host decision event=esp32s3_000053 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (139623) host_client: fallback response event=esp32s3_000053 body={"event_id":"esp32s3_000053","prediction":"normal","confidence":0.5033,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (141633) adaptive_edge: local inference event=esp32s3_000054 prediction=normal confidence=0.649 latency_ms=0.020 queue_depth=4 priority=normal[0m
+[0;32mI (142923) adaptive_edge: host decision event=esp32s3_000054 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (142973) host_client: fallback response event=esp32s3_000054 body={"event_id":"esp32s3_000054","prediction":"normal","confidence":0.6493,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (144973) adaptive_edge: local inference event=esp32s3_000055 prediction=normal confidence=0.633 latency_ms=0.019 queue_depth=8 priority=normal[0m
+[0;32mI (145343) adaptive_edge: host decision event=esp32s3_000055 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;33mW (147373) HTTP_CLIENT: Connection timed out before data was ready![0m
+[0;33mW (147373) host_client: POST failed url=http://192.168.1.207:8000/infer/fallback err=ESP_ERR_HTTP_EAGAIN status=-1[0m
+[0;33mW (147373) local_inference: local fallback event=esp32s3_000055 prediction=normal confidence=0.633 latency_ms=0.019[0m
+[0;32mI (149383) adaptive_edge: local inference event=esp32s3_000056 prediction=normal confidence=0.514 latency_ms=0.020 queue_depth=0 priority=normal[0m
+[0;32mI (150673) adaptive_edge: host decision event=esp32s3_000056 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (150713) host_client: fallback response event=esp32s3_000056 body={"event_id":"esp32s3_000056","prediction":"normal","confidence":0.5143,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (152723) adaptive_edge: local inference event=esp32s3_000057 prediction=normal confidence=0.515 latency_ms=0.020 queue_depth=7 priority=normal[0m
+[0;32mI (153813) adaptive_edge: host decision event=esp32s3_000057 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (153863) host_client: fallback response event=esp32s3_000057 body={"event_id":"esp32s3_000057","prediction":"normal","confidence":0.5153,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (155873) adaptive_edge: local inference event=esp32s3_000058 prediction=anomaly confidence=0.723 latency_ms=0.020 queue_depth=3 priority=normal[0m
+[0;32mI (155993) adaptive_edge: host decision event=esp32s3_000058 action=run_local reason=local_inference_acceptable timeout_ms=250[0m
+[0;32mI (157993) adaptive_edge: local inference event=esp32s3_000059 prediction=normal confidence=0.606 latency_ms=0.019 queue_depth=3 priority=normal[0m
+[0;32mI (160403) adaptive_edge: host decision event=esp32s3_000059 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (160453) host_client: fallback response event=esp32s3_000059 body={"event_id":"esp32s3_000059","prediction":"normal","confidence":0.6063,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (162453) adaptive_edge: local inference event=esp32s3_000060 prediction=normal confidence=0.722 latency_ms=0.020 queue_depth=1 priority=normal[0m
+[0;32mI (163963) adaptive_edge: host decision event=esp32s3_000060 action=run_local reason=local_inference_acceptable timeout_ms=250[0m
+[0;32mI (165963) adaptive_edge: local inference event=esp32s3_000061 prediction=normal confidence=0.501 latency_ms=0.019 queue_depth=6 priority=normal[0m
+[0;32mI (167453) adaptive_edge: host decision event=esp32s3_000061 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (167483) host_client: fallback response event=esp32s3_000061 body={"event_id":"esp32s3_000061","prediction":"normal","confidence":0.5007,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (169493) adaptive_edge: local inference event=esp32s3_000062 prediction=normal confidence=0.579 latency_ms=0.019 queue_depth=8 priority=normal[0m
+[0;32mI (169543) adaptive_edge: host decision event=esp32s3_000062 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (169603) host_client: fallback response event=esp32s3_000062 body={"event_id":"esp32s3_000062","prediction":"normal","confidence":0.5793,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (171603) adaptive_edge: local inference event=esp32s3_000063 prediction=normal confidence=0.598 latency_ms=0.019 queue_depth=6 priority=normal[0m
+[0;32mI (172073) adaptive_edge: host decision event=esp32s3_000063 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (172123) host_client: fallback response event=esp32s3_000063 body={"event_id":"esp32s3_000063","prediction":"normal","confidence":0.598,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (174123) adaptive_edge: local inference event=esp32s3_000064 prediction=anomaly confidence=0.684 latency_ms=0.022 queue_depth=6 priority=normal[0m
+[0;32mI (174173) adaptive_edge: host decision event=esp32s3_000064 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (174233) host_client: fallback response event=esp32s3_000064 body={"event_id":"esp32s3_000064","prediction":"anomaly","confidence":0.6843,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (176243) adaptive_edge: local inference event=esp32s3_000065 prediction=normal confidence=0.511 latency_ms=0.019 queue_depth=8 priority=normal[0m
+[0;32mI (176273) adaptive_edge: host decision event=esp32s3_000065 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (176323) host_client: fallback response event=esp32s3_000065 body={"event_id":"esp32s3_000065","prediction":"normal","confidence":0.511,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (178323) adaptive_edge: local inference event=esp32s3_000066 prediction=normal confidence=0.597 latency_ms=0.019 queue_depth=5 priority=normal[0m
+[0;32mI (178373) adaptive_edge: host decision event=esp32s3_000066 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (178433) host_client: fallback response event=esp32s3_000066 body={"event_id":"esp32s3_000066","prediction":"normal","confidence":0.597,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (180443) adaptive_edge: local inference event=esp32s3_000067 prediction=normal confidence=0.568 latency_ms=0.020 queue_depth=9 priority=normal[0m
+[0;32mI (180503) adaptive_edge: host decision event=esp32s3_000067 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (180553) host_client: fallback response event=esp32s3_000067 body={"event_id":"esp32s3_000067","prediction":"normal","confidence":0.5683,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (182563) adaptive_edge: local inference event=esp32s3_000068 prediction=normal confidence=0.557 latency_ms=0.022 queue_depth=1 priority=normal[0m
+[0;32mI (183033) adaptive_edge: host decision event=esp32s3_000068 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (183073) host_client: fallback response event=esp32s3_000068 body={"event_id":"esp32s3_000068","prediction":"normal","confidence":0.5573,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (185073) adaptive_edge: local inference event=esp32s3_000069 prediction=normal confidence=0.542 latency_ms=0.019 queue_depth=0 priority=normal[0m
+[0;32mI (185293) adaptive_edge: host decision event=esp32s3_000069 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (185343) host_client: fallback response event=esp32s3_000069 body={"event_id":"esp32s3_000069","prediction":"normal","confidence":0.5417,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (187343) adaptive_edge: local inference event=esp32s3_000070 prediction=anomaly confidence=0.788 latency_ms=0.020 queue_depth=3 priority=high[0m
+[0;32mI (187433) adaptive_edge: host decision event=esp32s3_000070 action=offload reason=priority_escalation timeout_ms=500[0m
+[0;32mI (187483) host_client: fallback response event=esp32s3_000070 body={"event_id":"esp32s3_000070","prediction":"anomaly","confidence":0.788,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (189493) adaptive_edge: local inference event=esp32s3_000071 prediction=normal confidence=0.749 latency_ms=0.020 queue_depth=3 priority=normal[0m
+[0;32mI (189553) adaptive_edge: host decision event=esp32s3_000071 action=run_local reason=local_inference_acceptable timeout_ms=250[0m
+[0;32mI (191553) adaptive_edge: local inference event=esp32s3_000072 prediction=normal confidence=0.546 latency_ms=0.020 queue_depth=7 priority=normal[0m
+[0;32mI (191653) adaptive_edge: host decision event=esp32s3_000072 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (191703) host_client: fallback response event=esp32s3_000072 body={"event_id":"esp32s3_000072","prediction":"normal","confidence":0.5457,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (193713) adaptive_edge: local inference event=esp32s3_000073 prediction=normal confidence=0.518 latency_ms=0.019 queue_depth=4 priority=normal[0m
+[0;32mI (193783) adaptive_edge: host decision event=esp32s3_000073 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (193833) host_client: fallback response event=esp32s3_000073 body={"event_id":"esp32s3_000073","prediction":"normal","confidence":0.5183,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (195843) adaptive_edge: local inference event=esp32s3_000074 prediction=normal confidence=0.641 latency_ms=0.020 queue_depth=2 priority=normal[0m
+[0;32mI (195883) adaptive_edge: host decision event=esp32s3_000074 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (195943) host_client: fallback response event=esp32s3_000074 body={"event_id":"esp32s3_000074","prediction":"normal","confidence":0.6407,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (197953) adaptive_edge: local inference event=esp32s3_000075 prediction=normal confidence=0.517 latency_ms=0.019 queue_depth=3 priority=normal[0m
+[0;32mI (198083) adaptive_edge: host decision event=esp32s3_000075 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (198133) host_client: fallback response event=esp32s3_000075 body={"event_id":"esp32s3_000075","prediction":"normal","confidence":0.5167,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (200143) adaptive_edge: local inference event=esp32s3_000076 prediction=normal confidence=0.692 latency_ms=0.022 queue_depth=6 priority=normal[0m
+[0;32mI (200213) adaptive_edge: host decision event=esp32s3_000076 action=offload reason=low_local_confidence timeout_ms=500[0m
+[0;32mI (200253) host_client: fallback response event=esp32s3_000076 body={"event_id":"esp32s3_000076","prediction":"normal","confidence":0.692,"model_id":"host-fallback-baseline-v0"}[0m
+[0;32mI (202253) adaptive_edge: local inference event=esp32s3_000077 prediction=normal confidence=0.844 latency_ms=0.020 queue_depth=6 priority=normal[0m
+[0;32mI (202973) adaptive_edge: host decision event=esp32s3_000077 action=run_local reason=local_inference_acceptable timeout_ms=250[0m
+[0;32mI (204973) adaptive_edge: local inference event=esp32s3_000078 prediction=anomaly confidence=0.700 latency_ms=0.020 queue_depth=5 priority=normal[0m
+[0;33mW (206253) host_client: POST failed url=http://192.168.1.207:8000/event err=ESP_OK status=400[0m
+[0;33mW (206253) local_inference: local fallback event=esp32s3_000078 prediction=anomaly confidence=0.700 latency_ms=0.020[0m
+[0;32mI (208253) adaptive_edge: local inference event=esp32s3_000079 prediction=normal confidence=0.853 latency_ms=0.020 queue_depth=4 priority=normal[0m
+[1;31mE (208263) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (208273) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (208273) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (208273) host_client: POST failed url=http://192.168.1.207:8000/event err=ESP_ERR_HTTP_CONNECT status=0[0m
+[0;33mW (208283) local_inference: local fallback event=esp32s3_000079 prediction=normal confidence=0.853 latency_ms=0.020[0m
+[0;32mI (210293) adaptive_edge: local inference event=esp32s3_000080 prediction=anomaly confidence=0.869 latency_ms=0.022 queue_depth=2 priority=normal[0m
+[1;31mE (210323) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (210323) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (210323) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (210333) host_client: POST failed url=http://192.168.1.207:8000/event err=ESP_ERR_HTTP_CONNECT status=0[0m
+[0;33mW (210343) local_inference: local fallback event=esp32s3_000080 prediction=anomaly confidence=0.869 latency_ms=0.022[0m
+[0;32mI (212353) adaptive_edge: local inference event=esp32s3_000081 prediction=anomaly confidence=0.653 latency_ms=0.019 queue_depth=9 priority=normal[0m
+[1;31mE (212593) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (212593) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (212603) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (212603) host_client: POST failed url=http://192.168.1.207:8000/event err=ESP_ERR_HTTP_CONNECT status=0[0m
+[0;33mW (212613) local_inference: local fallback event=esp32s3_000081 prediction=anomaly confidence=0.653 latency_ms=0.019[0m
+[0;32mI (214623) adaptive_edge: local inference event=esp32s3_000082 prediction=normal confidence=0.668 latency_ms=0.019 queue_depth=0 priority=normal[0m
+[1;31mE (214653) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (214653) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (214653) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (214663) host_client: POST failed url=http://192.168.1.207:8000/event err=ESP_ERR_HTTP_CONNECT status=0[0m
+[0;33mW (214673) local_inference: local fallback event=esp32s3_000082 prediction=normal confidence=0.668 latency_ms=0.019[0m
+[0;32mI (216683) adaptive_edge: local inference event=esp32s3_000083 prediction=anomaly confidence=0.712 latency_ms=0.020 queue_depth=8 priority=normal[0m
+[1;31mE (217203) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (217203) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (217203) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (217213) host_client: POST failed url=http://192.168.1.207:8000/event err=ESP_ERR_HTTP_CONNECT status=0[0m
+[0;33mW (217223) local_inference: local fallback event=esp32s3_000083 prediction=anomaly confidence=0.712 latency_ms=0.020[0m
+[0;32mI (219233) adaptive_edge: local inference event=esp32s3_000084 prediction=normal confidence=0.759 latency_ms=0.022 queue_depth=3 priority=normal[0m
+[1;31mE (219453) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (219463) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (219463) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (219463) host_client: POST failed url=http://192.168.1.207:8000/event err=ESP_ERR_HTTP_CONNECT status=0[0m
+[0;33mW (219473) local_inference: local fallback event=esp32s3_000084 prediction=normal confidence=0.759 latency_ms=0.022[0m
+[0;32mI (221483) adaptive_edge: local inference event=esp32s3_000085 prediction=normal confidence=0.710 latency_ms=0.020 queue_depth=2 priority=normal[0m
+[1;31mE (222123) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (222123) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (222123) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (222123) host_client: POST failed url=http://192.168.1.207:8000/event err=ESP_ERR_HTTP_CONNECT status=0[0m
+[0;33mW (222133) local_inference: local fallback event=esp32s3_000085 prediction=normal confidence=0.710 latency_ms=0.020[0m
+[0;32mI (224143) adaptive_edge: local inference event=esp32s3_000086 prediction=anomaly confidence=0.695 latency_ms=0.022 queue_depth=6 priority=normal[0m
+[1;31mE (224163) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (224163) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (224163) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (224173) host_client: POST failed url=http://192.168.1.207:8000/event err=ESP_ERR_HTTP_CONNECT status=0[0m
+[0;33mW (224183) local_inference: local fallback event=esp32s3_000086 prediction=anomaly confidence=0.695 latency_ms=0.022[0m
+[0;32mI (226193) adaptive_edge: local inference event=esp32s3_000087 prediction=normal confidence=0.535 latency_ms=0.020 queue_depth=7 priority=normal[0m
+[1;31mE (227653) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (227653) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (227653) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (227653) host_client: POST failed url=http://192.168.1.207:8000/event err=ESP_ERR_HTTP_CONNECT status=0[0m
+[0;33mW (227663) local_inference: local fallback event=esp32s3_000087 prediction=normal confidence=0.535 latency_ms=0.020[0m
+[0;32mI (229673) adaptive_edge: local inference event=esp32s3_000088 prediction=normal confidence=0.550 latency_ms=0.019 queue_depth=6 priority=normal[0m
+[1;31mE (229693) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (229693) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (229693) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (229703) host_client: POST failed url=http://192.168.1.207:8000/event err=ESP_ERR_HTTP_CONNECT status=0[0m
+[0;33mW (229713) local_inference: local fallback event=esp32s3_000088 prediction=normal confidence=0.550 latency_ms=0.019[0m
+[0;32mI (231723) adaptive_edge: local inference event=esp32s3_000089 prediction=normal confidence=0.541 latency_ms=0.022 queue_depth=4 priority=normal[0m
+[1;31mE (231743) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[1;31mE (231743) transport_base: Failed to open a new connection: 32772[0m
+[1;31mE (231743) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (231743) host_client: POST failed url=http://192.168.1.207:8000/event err=ESP_ERR_HTTP_CONNECT status=0[0m
+[0;33mW (231753) local_inference: local fallback event=esp32s3_000089 prediction=normal confidence=0.541 latency_ms=0.022[0m

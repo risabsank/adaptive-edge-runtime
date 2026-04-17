@@ -4,6 +4,8 @@
 
 The runtime protocol defines how edge nodes report inference state and how the host returns execution decisions. Phase 1 uses HTTP/JSON because it is easy to inspect and simulate. The protocol can later be mapped to MQTT, gRPC, BLE payloads, or compact binary messages.
 
+For Phase 3, the ESP32-S3 uses Wi-Fi HTTP/JSON to call the host. USB is used only for flashing, power, and serial logs.
+
 ## Event State
 
 `POST /event`
@@ -65,6 +67,20 @@ The runtime protocol defines how edge nodes report inference state and how the h
 | `batch` | Delay briefly and process events together |
 | `retry` | Retry after a transient failure |
 | `degraded_mode` | Continue with conservative local behavior |
+
+## ESP32-S3 Decision Handling
+
+The Phase 3 ESP32-S3 firmware handles host decisions as follows:
+
+| Action | ESP32-S3 behavior |
+|---|---|
+| `run_local` | Keep the local inference result |
+| `offload` | Send the event features to `/infer/fallback` |
+| `batch` | Delay for the returned `timeout_ms` |
+| `retry` | Use local fallback for this iteration |
+| `degraded_mode` | Use local fallback for this iteration |
+| `use_small_model` | Keep local result until multiple model variants exist |
+| `use_large_model` | Keep local result until multiple model variants exist |
 
 ## Priority Levels
 

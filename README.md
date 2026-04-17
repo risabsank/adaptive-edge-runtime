@@ -92,3 +92,9 @@ pytest
 ## Roadmap
 
 See [docs/roadmap.md](docs/roadmap.md) for the full staged roadmap.
+
+## ESP32-S3 Firmware
+
+Phase 3 adds the ESP32-S3 edge inference node skeleton under `firmware/esp32s3`.
+
+For setup and reproducibility, see [docs/esp32s3-setup.md](docs/esp32s3-setup.md).
