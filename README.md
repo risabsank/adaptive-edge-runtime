@@ -10,14 +10,13 @@ This repository documents and implements an end-to-end adaptive edge AI runtime.
 
 ## Current Phase
 
-Phase 1 establishes the project foundation:
+Phase 4 establishes the first wireless multi-device path:
 
-- Public-facing project documentation
-- Architecture and protocol docs
-- Host controller skeleton
-- Rule-based decision baseline
-- Local event simulator
-- Initial test structure
+- Host runtime with decision and fallback endpoints
+- ESP32-S3 local inference and host communication
+- nRF52840 BLE event broadcasting
+- Wireless nRF52840 -> ESP32-S3 event flow
+- Setup and reproducibility documentation for host and firmware bring-up
 
 ## Architecture
 
@@ -53,7 +52,17 @@ adaptive-edge-runtime/
   tests/                Unit and integration tests
 ```
 
-## Quick Start
+## Getting Started
+
+The quickest way to start is to bring the system up in three layers:
+
+1. Start the host runtime on your computer.
+2. Flash and run the ESP32-S3 edge runtime.
+3. Flash and run the nRF52840 BLE event node.
+
+You can stop after step 1 or 2 if you want to test pieces incrementally.
+
+### 1. Start the host runtime
 
 Create a Python environment and install the host runtime dependencies:
 
@@ -66,20 +75,99 @@ pip install -r host/controller/requirements.txt
 Run the host controller:
 
 ```bash
-uvicorn host.controller.app:app --reload
+.venv/bin/python -m uvicorn host.controller.app:app --reload --host 0.0.0.0
 ```
 
-In another terminal, send synthetic events:
+Confirm it is running:
 
 ```bash
-python scripts/simulate_events.py
+curl http://127.0.0.1:8000/health
+curl http://127.0.0.1:8000/metrics
+```
+
+If you want to test the host by itself, in another terminal send synthetic events:
+
+```bash
+.venv/bin/python scripts/simulate_events.py
 ```
 
 Run tests:
 
 ```bash
-pytest
+.venv/bin/python -m pytest
 ```
+
+### 2. Start the ESP32-S3 runtime
+
+The ESP32-S3 connects to your computer in two ways:
+
+- USB for flashing, power, and serial logs
+- Wi-Fi HTTP for calling the host runtime
+
+Use ESP-IDF v5.x and run commands from:
+
+```bash
+cd firmware/esp32s3
+```
+
+Set your host machine IP address in the ESP32-S3 config. On macOS:
+
+```bash
+ipconfig getifaddr en0
+```
+
+Then configure and build:
+
+```bash
+idf.py set-target esp32s3
+idf.py menuconfig
+idf.py build
+idf.py -p /dev/cu.usbmodemXXXX flash monitor
+```
+
+In `menuconfig`, set:
+
+- Wi-Fi SSID
+- Wi-Fi password
+- Host `/event` URL
+- Host `/infer/fallback` URL
+
+Example host URLs:
+
+```text
+http://192.168.1.25:8000/event
+http://192.168.1.25:8000/infer/fallback
+```
+
+### 3. Start the nRF52840 event node
+
+Phase 4 uses a wireless BLE path, so you do not need a breadboard or jumper wires between the nRF52840 and ESP32-S3.
+
+The intended flow is:
+
+```text
+nRF52840 BLE advertisements
+  -> ESP32-S3 BLE scanner
+  -> local inference
+  -> host runtime
+```
+
+The nRF52840 uses Zephyr / nRF Connect SDK style files in:
+
+```bash
+cd firmware/nrf52840
+```
+
+Build and flash with your Zephyr or nRF Connect SDK workflow for the connected board, then watch the serial log for advertisement output. The ESP32-S3 will prefer BLE events from the nRF52840 and fall back to synthetic events if no BLE event arrives before the configured timeout.
+
+### 4. What success looks like
+
+When the full Phase 4 path is up, you should see:
+
+- nRF52840 serial logs showing BLE event advertisements
+- ESP32-S3 serial logs showing `source=nrf52840` on received events
+- host `/metrics` counters increasing
+- host JSONL traces under `experiments/traces/events.jsonl`
 
 ## Initial API
 
@@ -98,3 +186,9 @@ See [docs/roadmap.md](docs/roadmap.md) for the full staged roadmap.
 Phase 3 adds the ESP32-S3 edge inference node skeleton under `firmware/esp32s3`.
 
 For setup and reproducibility, see [docs/esp32s3-setup.md](docs/esp32s3-setup.md).
+
+## Wireless nRF52840 Setup
+
+Phase 4 adds a wireless BLE event path from the nRF52840 to the ESP32-S3.
+
+For the no-breadboard setup and bring-up steps, see [docs/wireless-phase4-setup.md](docs/wireless-phase4-setup.md).

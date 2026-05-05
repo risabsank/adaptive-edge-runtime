@@ -54,11 +54,14 @@ Exit criteria:
 
 ## Phase 4: nRF52840 Event Node
 
+Status: complete
+
 Deliverables:
 
 - nRF52840 firmware skeleton
 - Event trigger using button, timer, IMU, or synthetic signal
 - Compact event transmission to ESP32-S3
+- Wireless BLE setup documentation for nRF52840 -> ESP32-S3 without a breadboard
 
 Exit criteria:
 

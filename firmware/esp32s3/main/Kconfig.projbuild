@@ -38,5 +38,19 @@ config EDGE_USE_TFLM
         Enables the TensorFlow Lite Micro integration path once a valid model and component are added.
         The default firmware remains runnable with the deterministic local classifier.
 
-endmenu
+config EDGE_USE_BLE_EVENT_SOURCE
+    bool "Use BLE advertisements from the nRF52840 as the preferred event source"
+    default y
+    help
+        When enabled, the ESP32-S3 scans for BLE advertisement frames from the nRF52840 and
+        uses them as runtime events. If no BLE event arrives before the timeout, the firmware
+        falls back to synthetic events.
 
+config EDGE_BLE_EVENT_TIMEOUT_MS
+    int "BLE event wait timeout in milliseconds"
+    default 3000
+    range 250 60000
+    help
+        Maximum time the ESP32-S3 waits for an nRF52840 BLE event before generating a synthetic event.
+
+endmenu

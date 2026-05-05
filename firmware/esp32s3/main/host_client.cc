@@ -73,14 +73,19 @@ void copy_json_string(cJSON* root, const char* key, char* target, size_t target_
 
 }  // namespace
 
-bool post_event_to_host(const EdgeEvent& event, const LocalInferenceResult& result, HostDecision* decision) {
+bool post_event_to_host(
+    const EdgeEvent& event,
+    const LocalInferenceResult& result,
+    int recent_failures,
+    HostDecision* decision
+) {
     char payload[768];
     snprintf(
         payload,
         sizeof(payload),
         "{"
         "\"event_id\":\"%s\","
-        "\"source\":\"esp32s3\","
+        "\"source\":\"%s\","
         "\"features\":[%.4f,%.4f,%.4f],"
         "\"local_prediction\":\"%s\","
         "\"local_confidence\":%.4f,"
@@ -88,9 +93,10 @@ bool post_event_to_host(const EdgeEvent& event, const LocalInferenceResult& resu
         "\"queue_depth\":%d,"
         "\"event_priority\":\"%s\","
         "\"host_reachable\":true,"
-        "\"recent_failures\":0"
+        "\"recent_failures\":%d"
         "}",
         event.event_id,
+        event.source,
         event.features[0],
         event.features[1],
         event.features[2],
@@ -98,7 +104,8 @@ bool post_event_to_host(const EdgeEvent& event, const LocalInferenceResult& resu
         result.confidence,
         result.latency_ms,
         event.queue_depth,
-        event.priority
+        event.priority,
+        recent_failures
     );
 
     HttpResponseBuffer response = {};

@@ -14,7 +14,8 @@ def test_low_confidence_events_are_offloaded() -> None:
 def test_host_unreachable_enters_degraded_mode() -> None:
     decision = RuleBasedController().decide(EventState(host_reachable=False))
     assert decision.action == RuntimeAction.degraded_mode
-    assert decision.reason == "host_unreachable"
+    assert decision.reason == "host_unreachable_stay_local"
+    assert decision.metadata["active_confidence_threshold"] == 0.85
 
 
 def test_high_priority_events_are_escalated() -> None:
@@ -23,6 +24,33 @@ def test_high_priority_events_are_escalated() -> None:
     )
     assert decision.action == RuntimeAction.offload
     assert decision.reason == "priority_escalation"
+
+
+def test_repeated_failures_enter_degraded_mode() -> None:
+    decision = RuleBasedController().decide(EventState(recent_failures=3))
+    assert decision.action == RuntimeAction.degraded_mode
+    assert decision.reason == "repeated_failures_degraded_mode"
+    assert decision.metadata["fallback_mode"] == "stay_local"
+
+
+def test_latency_over_budget_prefers_smaller_model() -> None:
+    decision = RuleBasedController().decide(EventState(local_confidence=0.95, local_latency_ms=60.0))
+    assert decision.action == RuntimeAction.use_small_model
+    assert decision.reason == "local_latency_over_budget"
+    assert decision.metadata["target_model"] == "small"
+
+
+def test_queue_pressure_batches_work() -> None:
+    decision = RuleBasedController().decide(EventState(local_confidence=0.95, queue_depth=8))
+    assert decision.action == RuntimeAction.batch
+    assert decision.reason == "queue_depth_pressure"
+
+
+def test_overload_queue_batches_and_reduces_sampling() -> None:
+    decision = RuleBasedController().decide(EventState(local_confidence=0.95, queue_depth=12))
+    assert decision.action == RuntimeAction.batch
+    assert decision.reason == "queue_depth_overload_reduce_sampling"
+    assert decision.metadata["sampling_interval_ms"] == 4000
 
 
 def test_health_endpoint() -> None:

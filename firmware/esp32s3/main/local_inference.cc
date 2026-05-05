@@ -52,14 +52,16 @@ LocalInferenceResult run_local_inference(const EdgeEvent& event) {
     return result;
 }
 
-void apply_local_fallback(const EdgeEvent& event, const LocalInferenceResult& result) {
+void apply_local_fallback(const EdgeEvent& event, const LocalInferenceResult& result, float confidence_threshold) {
+    const bool confident_enough = result.confidence >= confidence_threshold;
     ESP_LOGW(
         TAG,
-        "local fallback event=%s prediction=%s confidence=%.3f latency_ms=%.3f",
+        "local fallback event=%s prediction=%s confidence=%.3f latency_ms=%.3f threshold=%.3f accepted=%s",
         event.event_id,
         result.prediction,
         result.confidence,
-        result.latency_ms
+        result.latency_ms,
+        confidence_threshold,
+        confident_enough ? "true" : "false"
     );
 }
-

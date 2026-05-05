@@ -8,6 +8,7 @@ struct EdgeEvent {
     int feature_count;
     const char* priority;
     int queue_depth;
+    const char* source;
 };
 
 struct LocalInferenceResult {
@@ -21,4 +22,3 @@ struct HostDecision {
     char reason[64];
     int timeout_ms;
 };
-

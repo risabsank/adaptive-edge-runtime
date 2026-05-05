@@ -11,6 +11,7 @@
 #include "nvs_flash.h"
 
 #include "event_source.h"
+#include "ble_event_receiver.h"
 #include "host_client.h"
 #include "local_inference.h"
 
@@ -18,6 +19,8 @@ namespace {
 
 constexpr const char* TAG = "adaptive_edge";
 constexpr EventBits_t kWifiConnectedBit = BIT0;
+constexpr float kDisconnectedConfidenceThreshold = 0.85f;
+constexpr int kDisconnectedSamplingDelayMs = 4000;
 
 EventGroupHandle_t wifi_event_group;
 
@@ -82,13 +85,25 @@ void handle_host_decision(const EdgeEvent& event, const LocalInferenceResult& re
 
     if (strcmp(decision.action, "offload") == 0) {
         if (!post_fallback_to_host(event)) {
-            apply_local_fallback(event, result);
+            apply_local_fallback(event, result, kDisconnectedConfidenceThreshold);
         }
     } else if (strcmp(decision.action, "degraded_mode") == 0 || strcmp(decision.action, "retry") == 0) {
-        apply_local_fallback(event, result);
+        apply_local_fallback(event, result, kDisconnectedConfidenceThreshold);
     } else if (strcmp(decision.action, "batch") == 0) {
         vTaskDelay(pdMS_TO_TICKS(decision.timeout_ms));
     }
+}
+
+void handle_local_controller_failure(const EdgeEvent& event, const LocalInferenceResult& result, int recent_failures) {
+    ESP_LOGW(
+        TAG,
+        "controller unavailable event=%s recent_failures=%d using local fallback threshold=%.2f",
+        event.event_id,
+        recent_failures,
+        kDisconnectedConfidenceThreshold
+    );
+    apply_local_fallback(event, result, kDisconnectedConfidenceThreshold);
+    vTaskDelay(pdMS_TO_TICKS(kDisconnectedSamplingDelayMs));
 }
 
 }  // namespace
@@ -103,14 +118,30 @@ extern "C" void app_main() {
     }
 
     const bool wifi_ready = configure_wifi();
+    bool ble_ready = false;
+#if CONFIG_EDGE_USE_BLE_EVENT_SOURCE
+    ble_ready = init_ble_event_receiver();
+#endif
     ESP_LOGI(TAG, "ESP32-S3 edge runtime started wifi_ready=%s", wifi_ready ? "true" : "false");
+    ESP_LOGI(TAG, "ESP32-S3 BLE event source ready=%s", ble_ready ? "true" : "false");
+    int recent_failures = 0;
 
     while (true) {
-        const EdgeEvent event = next_synthetic_event();
+        EdgeEvent event = {};
+#if CONFIG_EDGE_USE_BLE_EVENT_SOURCE
+        const bool has_ble_event = ble_ready && wait_for_ble_event(&event, CONFIG_EDGE_BLE_EVENT_TIMEOUT_MS);
+        if (!has_ble_event) {
+            event = next_synthetic_event();
+        }
+#else
+        event = next_synthetic_event();
+#endif
+
         const LocalInferenceResult result = run_local_inference(event);
         ESP_LOGI(
             TAG,
-            "local inference event=%s prediction=%s confidence=%.3f latency_ms=%.3f queue_depth=%d priority=%s",
+            "local inference source=%s event=%s prediction=%s confidence=%.3f latency_ms=%.3f queue_depth=%d priority=%s",
+            event.source,
             event.event_id,
             result.prediction,
             result.confidence,
@@ -120,10 +151,12 @@ extern "C" void app_main() {
         );
 
         HostDecision decision = {};
-        if (wifi_ready && post_event_to_host(event, result, &decision)) {
+        if (wifi_ready && post_event_to_host(event, result, recent_failures, &decision)) {
+            recent_failures = 0;
             handle_host_decision(event, result, decision);
         } else {
-            apply_local_fallback(event, result);
+            recent_failures += 1;
+            handle_local_controller_failure(event, result, recent_failures);
         }
 
         vTaskDelay(pdMS_TO_TICKS(CONFIG_EDGE_SYNTHETIC_EVENT_PERIOD_MS));

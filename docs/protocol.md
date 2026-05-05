@@ -5,6 +5,7 @@
 The runtime protocol defines how edge nodes report inference state and how the host returns execution decisions. Phase 1 uses HTTP/JSON because it is easy to inspect and simulate. The protocol can later be mapped to MQTT, gRPC, BLE payloads, or compact binary messages.
 
 For Phase 3, the ESP32-S3 uses Wi-Fi HTTP/JSON to call the host. USB is used only for flashing, power, and serial logs.
+For Phase 4, the nRF52840 sends compact BLE advertisement frames to the ESP32-S3 so the boards can communicate wirelessly without direct wiring.
 
 ## Event State
 
@@ -25,6 +26,24 @@ For Phase 3, the ESP32-S3 uses Wi-Fi HTTP/JSON to call the host. USB is used onl
   "recent_failures": 0
 }
 ```
+
+## nRF52840 BLE Event Frame
+
+The nRF52840 uses BLE manufacturer data with this layout:
+
+```text
+company_id (0x0059 little-endian)
+magic_0 (0xAE)
+magic_1 (0x10)
+sequence (uint16 little-endian)
+feature_0 (uint8)
+feature_1 (uint8)
+feature_2 (uint8)
+priority (uint8; 0=normal, 1=high)
+queue_depth (uint8)
+```
+
+The ESP32-S3 BLE scanner parses that frame and converts it into the host `POST /event` JSON shape.
 
 ## Decision Response
 

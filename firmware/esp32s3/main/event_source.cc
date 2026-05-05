@@ -24,5 +24,6 @@ EdgeEvent next_synthetic_event() {
     event.features[2] = random_unit_float();
     event.priority = event.features[2] > 0.92f ? "high" : "normal";
     event.queue_depth = static_cast<int>(esp_random() % 10);
+    event.source = "esp32s3";
     return event;
 }
